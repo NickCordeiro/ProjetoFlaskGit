@@ -16,15 +16,13 @@ def saudacao(id):
 def contato():
     return render_template('contato.html')
 
-@app_nick.route('/usuario')
-def dados_usuario():
-    dados_usu = {"nome": "Nick", "profissao": "Estudante", "disciplina": "Desenvolvimento Web III"}
-    return render_template('usuario.html', dados=dados_usu)
-
-@app_nick.route('/usuario/<p_nome>/<p_profissao>/<p_disciplina>')
-def dados_usuario2(p_nome, p_profissao, p_disciplina):
-    dados_usu = {"nome": p_nome, "profissao": p_profissao, "disciplina": p_disciplina}
-    return render_template('usuario.html', dados=dados_usu)
+# rota /usuario COM passagem de argumentos
+@app_nick.route("/usuario/<nome_usuario>;<nome_profissao>")
+# rota /usuario SEM passagem de argumentos --> define valor padrão com defaults
+@app_nick.route("/usuario", defaults={"nome_usuario": "usuário?", "nome_profissao": ""})
+def dados_usuario(nome_usuario, nome_profissao):
+    dados_usu = {"profissao": nome_profissao, "disciplina": "Desenvolvimento Web III"}
+    return render_template("usuario.html", nome=nome_usuario, dados=dados_usu)
 
 @app_nick.route('/login')
 def login():
