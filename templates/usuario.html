@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do Usuário</title>
-  </head>
-  <body>
-    <p>
-      <label>NOME:</label> <h3> {{dados['nome']}} </h3>
-        <b>Profissão: </b> {{dados['profissao']}} <br/>
-        <b>Disciplina: </b> {{dados['disciplina']}}
-    </p> 
-  </body>
-</html>
+{% extends 'base.html' %}
+ 
+{% block conteudo %}
+
+<h2>Olá, {{nome}} </h2>
+<p>
+    <!-- 'static' é a pasta do projeto onde copio as imagens -->
+   <!-- <img class="imgquadrada" src = "{{ url_for ('static', filename = 'img/professora.jpg') }}" > -->
+    
+    <br>
+    <b>Profissão: </b> {{ dados['profissao']  }} <br/>
+    <b>Disciplina: </b> {{ dados['disciplina']  }}
+</p>
+
+{% endblock %}  

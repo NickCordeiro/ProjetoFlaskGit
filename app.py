@@ -22,10 +22,10 @@ def saudacao(id):
 #    nome = request.args.get("id")
 #    return render_template('homepage_nome.html', campoNome= nome) #retorna o arquivo homepage.html que está na pasta templates
 
-
+@app_nick.route('/')
 @app_nick.route('/index')
 def index():   #esta função está vinculada a rota /index
-    return render_template('index.html')  #retorna o arquivo index.html que está na pasta templates
+    return render_template('index.html', nome="Turma 2025")  #retorna o arquivo index.html que está na pasta templates
 
 @app_nick.route('/contato')
 def contato():
