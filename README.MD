@@ -16,5 +16,6 @@ python app.py
 
 - **v1**: rotas simples com Flask (`/`, `/ola`, `/contato`, `/rota2`), retornando texto puro.
 - **v2**: passa a usar `render_template` com páginas HTML na pasta `templates/`.
-- **v3**:  adiciona rotas com parametros na URL.
-- **v4**:  .
+- **v3**: adiciona rotas com parametros na URL.
+- **v4**: inicia heranca de templates, os outros htmls agora usam o base de base :p. Aqui inicia as branches também.
+- **v5**: adiciona rota /login com formulario e configura flash (SECRET_KEY)
