@@ -30,6 +30,17 @@ def dados_usuario2(p_nome, p_profissao, p_disciplina):
 def login():
     return render_template('login.html')
 
+@app_nick.route('/autenticar', methods=['GET', 'POST'])
+def autenticar():
+    usuario = request.form.get('nome_usuario')
+    senha = request.form.get('senha')
+
+    if usuario == "admin" and senha == "ifro":
+        return f"Usuário {usuario} autenticado com sucesso!"
+    else:
+        flash("Usuário ou senha inválidos!")
+        return redirect('/login')
+
 @app_nick.route('/rota2')
 def rota2():
     return render_template('rota2.html')

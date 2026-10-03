@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-    <form action="/autenticar" method="POST" > 
-        <!-- 
+    {% with mensagens = get_flashed_messages() %}
+        {% if mensagens %}
+            <ul>
+            {% for msg in mensagens %}
+                <li style="color:red">{{ msg }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
 
-        ao clickar no botão OK, no submit vai para a rota /autenticar -->
-        <!-- Quando trabalha com métodos GET (padrão) ou POST (declara method) --> 
+    <form action="/autenticar" method="POST">
         <br/><br/>
-       
-        Usuário: <input type = "text" name="nome_usuario" ><br/><br/>
-        Senha  : <input type = "text" name="senha"><br/><br/>
-        <button type = "submit">OK</button>
+        Usuário: <input type="text" name="nome_usuario"><br/><br/>
+        Senha  : <input type="text" name="senha"><br/><br/>
+        <button type="submit">OK</button>
     </form>
-
 {% endblock %}
-
